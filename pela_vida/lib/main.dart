@@ -7,7 +7,7 @@ import 'utils/randomPhrases.dart';
 //TODO Implementar um arquivo de aleatorização
 //TODO Colocar uma função nos botões
 //TODO Implementar a musica
-//TODO Remover codigo comentado
+//TODO Remover codigo comentados
 
 
 void main() => runApp(MyApp());
