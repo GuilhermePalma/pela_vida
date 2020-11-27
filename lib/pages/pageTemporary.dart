@@ -11,10 +11,10 @@ class Temporary extends StatelessWidget {
 }
 
 _bodyTemp() {
-  Center(
+  return Center(
     child: Container(
-      color: Colors.white,
-      child: Text("Pagina Temporaria"),
+      color: Colors.white38,
+      child: Text("Pagina Temporaria", style: TextStyle(color: Colors.black),),
     ),
   );
 }

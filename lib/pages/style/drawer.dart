@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:pela_vida/pages/pageTemporary.dart';
+import 'package:pela_vida/pages/style/colorsGlobal.dart';
 import 'package:pela_vida/utils/navegation.dart';
 
 //TODO Colocar as paginas corretas
-//TODO Inserir a imagem correta
 
 lateralMenu(BuildContext context) {
   return Drawer(
@@ -17,12 +17,11 @@ lateralMenu(BuildContext context) {
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
           decoration: BoxDecoration(
-            color: Colors.green,
+            color: Colors.cinza1,
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(
-                //TODO Colocar uma imagem certa
-                  "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/a-tecnica-pomodoro-um-metodo-gestao-tempo-5b4e0f6051f44.jpg"
+              image: AssetImage(
+                "assets/images/LogoPelaVida.png"
               ),
             ),
           ),
