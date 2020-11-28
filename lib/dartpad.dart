@@ -11,6 +11,7 @@ import 'dart:math';
 //TODO Implementar a musica
 //TODO Remover codigo comentado
 
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -34,23 +35,31 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) =>
       headerMain("Pela Vida", _body, lateralMenu, amarelo3, context);
 
+  List<String> storagePhrase = [];
+  String phraseDay="", authorDay="";
+  String phrase="", author="";
+  bool verificDay = false;
+
   _body() {
 
-    List<String> storagePhrase = [];
-    String phrase = "", author = "";
-
-    if (phrase.isEmpty && author.isEmpty) {
+    //Verifica se a frase do dia ja existe usando uma variavel booleana
+    if(verificDay == false){
       storagePhrase = formatPhrase();
+      phraseDay = storagePhrase[0];
+      authorDay = storagePhrase[1];
+      verificDay = true;
     }
 
-    phrase = storagePhrase[0];
-    author = storagePhrase[1];
-
+    //Gera uma nova frase e atualiza na tela
     generationNewPhrase() {
+      storagePhrase = formatPhrase();
+
       setState(() {
-        storagePhrase = formatPhrase();
+        phrase = storagePhrase[0];
+        author = storagePhrase[1];
       });
     }
+
 
     return Container(
       color: Color(cinza3),
@@ -60,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Card(
+          _messages("Mensagem do Dia:", phraseDay, authorDay),
+          /*Card(
             color: Colors.white60,
             margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
             child: Column(
@@ -69,20 +79,21 @@ class _MyHomePageState extends State<MyHomePage> {
                   "Mensagem do Dia:",
                   style: TextStyle(),
                   textAlign: TextAlign.center,
+
                 ),
                 Text(
-                  phrase,
+                  phraseDay,
                   style: TextStyle(),
                   textAlign: TextAlign.center,
                 ),
                 Text(
-                  author,
+                  authorDay,
                   style: TextStyle(),
                   textAlign: TextAlign.center,
                 ),
               ],
             ),
-          ),
+          ),*/
           Container(
             margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
             width: 210,
@@ -118,7 +129,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           generationNewPhrase();
                         }),
                   ),
-                  Card(
+                  _messages("Frases Sorteadas:", phrase, author),
+                  /*Card(
                     color: Colors.white60,
                     margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                     child: Container(
@@ -143,7 +155,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ],
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
             ),
@@ -154,6 +166,37 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+_messages(String _text1, String _text2, String _text3) {
+  return Card(
+    color: Colors.white60,
+    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+    child: Container(
+      width: 300,
+      child: Column(
+        children: <Widget>[
+          Text(
+            _text1,
+            style: TextStyle(),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            _text2,
+            style: TextStyle(),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            _text3,
+            style: TextStyle(),
+            textAlign: TextAlign.center,
+          ),
+        ],
+      ),
+    ),
+  );
+}
+
+
 
 
 
