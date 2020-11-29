@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pela_vida/pages/style/colorsGlobal.dart';
-import 'package:pela_vida/pages/style/drawer.dart';
-import 'package:pela_vida/pages/style/header.dart';
 import 'package:pela_vida/utils/randomPhrases.dart';
+import 'package:pela_vida/pages/style/colorsGlobal.dart';
+import 'package:pela_vida/pages/components/drawer.dart';
+import 'package:pela_vida/pages/components/header.dart';
+import 'package:pela_vida/pages/components/text.dart';
+import 'package:pela_vida/pages/components/buttons.dart';
+
 
 //TODO Implementar a musica
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -84,8 +86,6 @@ class _MyHomePageState extends State<MyHomePage> {
     //Layout
     return Container(
       color: Color(grey2),
-      height: double.infinity,
-      width: double.infinity,
       child: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -97,8 +97,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    _buttons("Testar Novo Dia", () => _newDay(), false),
-                    _buttons("Reiniciar Frases", () => _resetPhrases(), false),
+                    buttons("Testar Novo Dia", () => _newDay(), false),
+                    buttons("Reiniciar Frases", () => _resetPhrases(), false),
                   ],
                 ),
               ),
@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: _roundBorder(offWhite, 5),
                 child: Column(
                   children: <Widget>[
-                    _buttons(
+                    buttons(
                         "Sortear Frase", () => generationNewPhrase(), true),
                     _messages("Frases Sorteadas:", phrase, author),
                   ],
@@ -136,42 +136,21 @@ _messages(String _title, String _text1, String _text2) {
     child: Column(
       children: <Widget>[
         Container(
-          padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-          child: _text(_title, 25, yellow2),
+          padding: EdgeInsets.fromLTRB(0, 8, 0, 5),
+          child: text(_title, 25, yellow2, fontWeight: 6),
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-          child: _text(_text1 == "" ? "" : '"$_text1"', 22, white),
+          child: text(_text1 == "" ? "" : '"$_text1"', 22, white),
         ),
         Align(
           alignment: Alignment.bottomRight,
-          child: _text(_text2 == "" ? "" : '-$_text2  ', 18, black),
+          child: Container(
+            padding: EdgeInsets.fromLTRB(5, 0, 10, 8),
+            child: text(_text2 == "" ? "" : '-$_text2', 18, black),
+          ),
         ),
       ],
-    ),
-  );
-}
-
-_buttons(String _text, Function action, bool _padding) {
-  List<double> _paddingValue;
-  _padding ? _paddingValue = [0, 10, 0, 5] : _paddingValue = [0, 0, 0, 0];
-
-  return Container(
-    //Responsavel pela margem do RaisedButton
-    padding: EdgeInsets.fromLTRB(
-        _paddingValue[0], _paddingValue[1], _paddingValue[2], _paddingValue[3]),
-    child: RaisedButton(
-      color: Color(grey0),
-      child: _text(_text, 18, black),
-      /* Text(
-        _text,
-        style: TextStyle(
-          fontSize: 18,
-          color: Colors.black,
-          fontWeight: FontWeight.w500,
-        ),
-      ), */
-      onPressed: action,
     ),
   );
 }
@@ -183,14 +162,3 @@ _roundBorder(int _color, double _radius) {
   );
 }
 
-_text(String _text, double _size, int _color, int _fontWeight) {
-  return Text(
-    _text,
-    style: TextStyle(
-      fontSize: _size,
-      color: Color(_color),
-      //TODO Arrumar amanhafontWeight: FontWeight.(_fontWeight),
-      ),
-  textAlign: TextAlign.center,
-  );
-}

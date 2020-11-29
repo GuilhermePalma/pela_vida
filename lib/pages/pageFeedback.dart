@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:pela_vida/pages/style/header.dart';
+import 'package:pela_vida/pages/components/header.dart';
 
-Widget build(BuildContext context) => headerSecondary("Feedback", _body, context);
+class FeedbackUser extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => headerSecondary("Perfil", _body, context);
+}
+
 
 //TODO Implentar a area de escrita
 //TODO Verificar o MainAxisAlignment.spaceBetween
@@ -21,8 +25,6 @@ _body() {
             RaisedButton(color: Colors.black, child: Text('Enviar'), onPressed: (){} ),
           ],
         )
-
-
 
       ],
     ),

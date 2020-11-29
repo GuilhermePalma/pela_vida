@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:pela_vida/pages/pageAboutApp.dart';
+import 'package:pela_vida/pages/pageAboutUs.dart';
+import 'package:pela_vida/pages/pageProfile.dart';
+import 'package:pela_vida/pages/pageSettings.dart';
 import 'package:pela_vida/pages/pageTemporary.dart';
+import 'package:pela_vida/pages/pageFeedback.dart';
 import 'package:pela_vida/pages/style/colorsGlobal.dart';
 import 'package:pela_vida/utils/navegation.dart';
-
-//TODO Colocar as paginas corretas
 
 lateralMenu(BuildContext context) {
   return Drawer(
@@ -26,12 +29,12 @@ lateralMenu(BuildContext context) {
             ),
           ),
         ),
-        _listaItens(0xeaac, "Perfil", Temporary(), context),
+        _listaItens(0xeaac, "Perfil", Profile(), context),
         _listaItens(0xe9c6, "Como Funciona", Temporary(), context),
-        _listaItens(0xe7db, "Sobre o APP", Temporary(), context),
-        _listaItens(60339, "Sobre Nós", Temporary(), context),
-        _listaItens(0xe5fe, "Feedback", Temporary(), context),
-        _listaItens(57520, "Configurações", Temporary(), context),
+        _listaItens(0xe7db, "Sobre o APP", AboutApp(), context),
+        _listaItens(60339, "Sobre Nós", AboutUs(), context),
+        _listaItens(0xe5fe, "Feedback", FeedbackUser(), context),
+        _listaItens(57520, "Configurações", Settings(), context),
       ],
     ),
   );
