@@ -1,0 +1,75 @@
+Estrutura:
+ -Frase
+ -Autor
+
+"Não deixe transbordar o que já te faz mal. Procure ajuda!"
+"Autor Desconhecido"
+
+"Você não está no fundo do poço!"
+"Autor Desconhecido"
+
+"Você não está sozinho!"
+"Autor Desconhecido"
+
+"Juntos somos mais fortes, não passe por isso sozinho, fale!"
+"Autor Desconhecido"
+
+"Seja lá o que você estiver passando, saiba que nunca foi sua culpa, e nunca será"
+"Autor Desconhecido"
+
+"continue vivo. Você precisa ouvir sua música favorita mais uma vez, seu bichinho de estimação sentirá falta de você partir, a lua é bonita demais pra nunca mais ser vista, você ainda não viu a próxima temporada daquela série incrível, você tem que ver as luzes de natal esse ano, o barulho da chuva vai te relaxar novamente"
+"Aquele Eita"
+
+"Você não consegue controlar tudo ao seu redor. E tudo bem"
+"Autor Desconhecido"
+
+"Não é egoísmo priorizar a sua saúde mental, mesmo que te digam ao contrario"
+"Autor Desconhecido"
+
+"Se a vida é uma história, mesmo que você tropece em uma em uma vírgula, ou caia em algum ponto final, não desista dos próximos capítulos."
+"Raquel Rodrigues"
+
+"Um capítulo ruim não estraga toda sua história."
+"Aquele Eita + Para largar o Rivotril"
+
+"O diálogo cura, tente falar."
+"Autor Desconhecido"
+
+"Não tenha vergonha de procurar ajuda profissional."
+"Autor Desconhecido"
+
+"NÃO É drama, NÃO É pra chamar atenção, NÃO É a falta de deus, E MUITO MENOS FRESCURA"
+"Autor Desconhecido"
+
+"Fale sobre aquilo que lhe dói."
+"Autor Desconhecido"
+
+"Eu odeio todas as vezes que amei você antes de mim"
+"Aquele Eita + TCD"
+
+"ter paciência com o tempo de cada um"
+"vana"
+
+"Você só vence o amanhã se não desistir hoje!"
+"Autor Desconhecido"
+
+"Você exala coisas boas, lembre-se disso sempre que se sentir pouco. Você é muito, é tudo"
+"declarais"
+
+"você não deve se afetar nem um pouquinho pelo o que os outros pensam de você"
+"Aquele Eita + Para largar o Rivotril"
+
+"você é mais forte do que parece"
+"@doses_diarias"
+
+"um dia vai dar tão certo que você nem vai se lembrar que já deu errado"
+"Aquele Eita + @prazer.poesia"
+
+"a vida é um ciclo constante de términos e inícios"
+"Carolina Carmo"
+
+"Perdoe-se pelas coisas que não dependiam só de você"
+"Felipe Pimentel"
+
+"tá tudo bem em não estar bem "
+"precisamosfalardeblog.blogspost.com"

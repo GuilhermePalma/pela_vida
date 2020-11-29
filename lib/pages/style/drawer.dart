@@ -17,7 +17,7 @@ lateralMenu(BuildContext context) {
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
           decoration: BoxDecoration(
-            color: Color(cinza1),
+            color: Color(grey1),
             image: DecorationImage(
               fit: BoxFit.fill,
               image: AssetImage(

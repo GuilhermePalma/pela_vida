@@ -1,37 +1,23 @@
 import 'dart:math';
+import 'package:pela_vida/utils/storagePhrases.dart';
+import 'package:pela_vida/utils/storageAuthor.dart';
 
-int _lengthPhrases = 5;
-var _position = List<int>.generate(_lengthPhrases, (int index) => index++);
+int lengthPhrases = 23;
+var position = List<int>.generate(lengthPhrases, (int _index) => _index++);
+bool positionEmpty = false;
 
-List<String> formatPhrase(){
-
+List<String> formatPhrase() {
   String _phrase, _author;
   List<String> finalAuthorPhrase;
   int valueIndex = valueRandom();
 
-  List<String> listPhrase = [
-      ("Oi0"),
-      ("Oi1"),
-      ("Oi2"),
-      ("Oi3"),
-      ("Oi4"),
-  ];
-
-  List<String> listAuthor = [
-      ("T0"),
-      ("T1"),
-      ("T2"),
-      ("T3"),
-      ("T4"),
-  ];
-
-
-  if(valueIndex == 999){
+  if (valueIndex == 999) {
     _phrase = 'Você já acessou todas as frases';
     finalAuthorPhrase = [
       _phrase,
       '',
     ];
+    positionEmpty = true;
     return finalAuthorPhrase;
   }
 
@@ -40,30 +26,29 @@ List<String> formatPhrase(){
   _author = listAuthor[valueIndex];
 
   finalAuthorPhrase = [
-      _phrase,
-      _author,
+    _phrase,
+    _author,
   ];
 
   return finalAuthorPhrase;
-
 }
 
-
-int valueRandom(){
-
+int valueRandom() {
   var random = new Random();
   int positionRandom, positionValue;
 
-  if(_position.isEmpty){
+    if(position.isEmpty){
     return positionValue = 999;
-  }
+    }
 
-  positionRandom = random.nextInt(_position.length); //Pega uma posição aleatoria no comprimento da lista
 
-  positionValue = _position[positionRandom]; //Pega o valor do numero da posição aleatoria
+  positionRandom = random.nextInt(
+      position.length); //Pega uma posição aleatoria no comprimento da lista
 
-  _position.remove(positionValue); //Remove o numero utilizado da Lista
+  positionValue =
+      position[positionRandom]; //Pega o valor do numero da posição aleatoria
+
+  position.remove(positionValue); //Remove o numero utilizado da Lista
 
   return positionValue;
-
 }

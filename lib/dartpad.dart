@@ -1,4 +1,4 @@
-//TODO Versão utilizada no dartpad, mas em constante ateração, com possiveis erros antigos.
+/* //TODO Versão utilizada no dartpad, mas em constante ateração, com possiveis erros antigos.
 
 import 'package:flutter/material.dart';
 import 'dart:math';
@@ -9,8 +9,7 @@ import 'dart:math';
 //TODO Implementar um arquivo de aleatorização
 //TODO Colocar uma função nos botões
 //TODO Implementar a musica
-//TODO Remover codigo comentado
-
+//TODO Remover codigo comentados
 
 void main() => runApp(MyApp());
 
@@ -33,17 +32,17 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) =>
-      headerMain("Pela Vida", _body, lateralMenu, amarelo3, context);
+      headerMain("Pela Vida", _body, lateralMenu, yellow3, context);
 
   List<String> storagePhrase = [];
-  String phraseDay="", authorDay="";
-  String phrase="", author="";
+  String phraseDay = "", authorDay = "";
+  String phrase = "", author = "";
   bool verificDay = false;
 
   _body() {
-
+    //Programação
     //Verifica se a frase do dia ja existe usando uma variavel booleana
-    if(verificDay == false){
+    if (verificDay == false) {
       storagePhrase = formatPhrase();
       phraseDay = storagePhrase[0];
       authorDay = storagePhrase[1];
@@ -60,8 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
       });
     }
 
+    //Layout
     return Container(
-      color: Color(cinza3),
+      color: Color(grey2),
       height: double.infinity,
       width: double.infinity,
       //child: SingleChildScrollView(
@@ -69,51 +69,58 @@ class _MyHomePageState extends State<MyHomePage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
 
-          _messages("Mensagem do Dia:", phraseDay, authorDay),
-
           Container(
-            margin: EdgeInsets.fromLTRB(10, 5, 10, 5),
-            width: 210,
-            decoration: BoxDecoration(
-              color: Colors.white60,
-              border: Border.all(
-                color: Colors.black,
-                width: 3,
-              ),
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: ButtonBar(
-              alignment: MainAxisAlignment.center,
-              children: <Widget>[
-                RaisedButton(child: Text("Play"), onPressed: () {}),
-                RaisedButton(child: Text("Mute"), onPressed: () {}),
-                RaisedButton(child: Text("Pause"), onPressed: () {}),
-              ],
-            ),
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+            width: 320,
+            decoration: roundBorder(offWhite, 5),
+            child: _messages("Mensagem do Dia:", phraseDay, authorDay),
           ),
 
+          /* Container(
+            margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
+            width: 320,
+            decoration: roundBorder(offWhite, 5),
+            child: Column(
+              children: <Widget>[
+                Container( //Esse Container é responsavel pela margem do RaisedButton
+                  padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                  child: RaisedButton(
+                      child: Text("Sortear Frase"),
+                      onPressed: () {
+                        generationNewPhrase();
+                      }),
+                ),
+                _messages("Frases Sorteadas:", phrase, author),
+              ],
+            ),
+          ), */
 
           Container(
             margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
             width: 320,
-            decoration: BoxDecoration(
-              color: Colors.white60,
-              borderRadius: BorderRadius.circular(5),
-            ),
+            decoration: roundBorder(offWhite, 5),
             child: Column(
               children: <Widget>[
-                Container(
+                Container( //Responsavel pela margem do RaisedButton
                   padding: EdgeInsets.fromLTRB(0, 10, 0, 5),
                   child: RaisedButton(
-                    child: Text("Sortear Frase"),
-                    onPressed: generationNewPhrase()
-                  ),
+                      color: Color(grey0),
+                      child: Text(
+                        "Sortear Frase",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      onPressed: () {
+                        generationNewPhrase();
+                      }),
                 ),
                 _messages("Frases Sorteadas:", phrase, author),
               ],
             ),
           ),
-
         ],
       ),
       //),
@@ -122,91 +129,55 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 _messages(String _title, String _text1, String _text2) {
-  return Card(
-    color: Colors.white60,
-    margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
-    child: Container(
-      width: 300,
-      child: Column(
-        children: <Widget>[
-          Text(
-            _title,
-            style: TextStyle(
-              fontSize: 20,
-              color: Colors.white,
-              fontWeight:FontWeight.bold
-            ),
-            textAlign: TextAlign.center,
-          ),
-          Text(
-            _text1 == "" ? "" : '"$_text1"',
-            style: TextStyle(),
-            textAlign: TextAlign.center,
-          ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: Text(
-              _text2 == "" ? "" : '-$_text2  ',
-              style: TextStyle(),
-            ),
-          ),
-        ],
-      ),
+  return Container(
+    width: 300,
+    margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
+    decoration: BoxDecoration(
+      color: Color(grey3),
+      borderRadius: BorderRadius.circular(5),
     ),
-  );
-}
-
-
-
-
-
-
-
-
-
-
-//------------------------------------------------------------------------//
-
-
-
-
-
-//TODO header
-//Titulo, Nome da função body, tela lateral, context p/ navegação entre as paginas
-headerMain(String _title, Function _body, Function _drawer,int _color, BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      backgroundColor: Color(_color),
-      title: Text(_title,
-          style: TextStyle(fontSize: 23, color: Colors.white)),
-      centerTitle: true,
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.home),
-          onPressed: () {},
+    child: Column(
+      children: <Widget>[
+        Text(
+          _title,
+          style: TextStyle(
+              fontSize: 20,
+              color: Color(yellow2),
+              fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        Text(
+          _text1 == "" ? "" : '"$_text1"',
+          style: TextStyle(
+            fontSize: 17,
+            color: Colors.white,
+          ),
+          textAlign: TextAlign.center,
+        ),
+        Align(
+          alignment: Alignment.bottomRight,
+          child: Text(
+            _text2 == "" ? "" : '-$_text2  ',
+            style: TextStyle(
+              fontSize: 15,
+              color: Colors.black,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
         ),
       ],
     ),
-    drawer: _drawer(context),
-    body: _body(),
   );
 }
 
-//Titulo, Nome da função body, context p/ navegação p/ pagina principal
-headerSecondary(String _title, Function _body, BuildContext context) {
-  return Scaffold(
-    appBar: AppBar(
-      title: Text(_title, style: TextStyle(fontSize: 23, color: Colors.black)),
-      centerTitle: true,
-      actions: <Widget>[
-        IconButton(
-            icon: Icon(Icons.home),
-            onPressed: () => Navigator.of(context).pop()),
-      ],
-    ),
-    body: _body(),
+roundBorder(int _color, double _radius) {
+  return BoxDecoration(
+    color: Color(_color),
+    borderRadius: BorderRadius.circular(_radius),
   );
 }
+
+
 
 
 
@@ -218,9 +189,30 @@ headerSecondary(String _title, Function _body, BuildContext context) {
 
 
 
-//TODO drawer
+
+//TODO page/style
+
+//TODO colorsGlobal.dart
+  //Cores Usadas no app
+  int yellow1 = 0xffFFED00 ;
+  int yellow2 = 0xffFFDD00 ;
+  int yellow3 = 0xffFDC300 ;
+  int yellow4 = 0xffF8A800 ;
+
+  int grey0 = 0xffE0E0E0 ;
+  int grey1 = 0xffD1D0D1 ;
+  int grey2 = 0xffB0AEAA ;
+  int grey3 = 0xff82807C ;
+  int grey4 = 0xff3A3A3A ;
+
+  int offWhite = 0xffF5F5F5;
+
+
+//*********************************************************************//
+
+//TODO drawer.dart
 //TODO Colocar as paginas corretas
-//TODO Inserir a imagem correta
+
 lateralMenu(BuildContext context) {
   return Drawer(
     child: ListView(
@@ -233,12 +225,11 @@ lateralMenu(BuildContext context) {
             style: TextStyle(color: Colors.white, fontSize: 25),
           ),
           decoration: BoxDecoration(
-            color: Colors.green,
+            color: Color(grey1),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: NetworkImage(
-                //TODO Colocar uma imagem certa
-                  "https://s1.static.brasilescola.uol.com.br/be/conteudo/images/a-tecnica-pomodoro-um-metodo-gestao-tempo-5b4e0f6051f44.jpg"
+              image: AssetImage(
+                "assets/images/LogoPelaVida.png"
               ),
             ),
           ),
@@ -267,12 +258,58 @@ _listaItens(int _icon, String _text, Widget _page, BuildContext context) {
 }
 
 
+//*********************************************************************//
+
+//TODO header.dart
+//Titulo, Nome da função body, tela lateral, context p/ navegação entre as paginas
+headerMain(String _title, Function _body, Function _drawer,int _color, BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      backgroundColor: Color(_color),
+      title: Text(_title,
+                  style: TextStyle(fontSize: 23, color: Colors.white)),
+      centerTitle: true,
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.home),
+          onPressed: () {},
+        ),
+      ],
+    ),
+    drawer: _drawer(context),
+    body: _body(),
+  );
+}
+
+//Titulo, Nome da função body, context p/ navegação p/ pagina principal
+headerSecondary(String _title, Function _body, BuildContext context) {
+  return Scaffold(
+    appBar: AppBar(
+      title: Text(_title, style: TextStyle(fontSize: 23, color: Colors.black)),
+      centerTitle: true,
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.home),
+          onPressed: () => Navigator.of(context).pop()),
+      ],
+    ),
+    body: _body(),
+  );
+}
+
+
+
+
+
 
 
 //------------------------------------------------------------------------//
 
 
 
+
+
+//TODO utils
 
 //TODO navegation.dart
 //Usado Para navegar entre as paginas
@@ -284,46 +321,12 @@ Future navegation(Widget _page, BuildContext context) {
   );
 }
 
-
-
-
-//------------------------------------------------------------------------//
-
-
-
-
-//TODO pageTemp
-//TODO Retirar esse codigo e reformatar: menuLateral
-//TODO Descontinuar esse codigo
-//TODO Necessario arrumar no menuLateral.dart
-class Temporary extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) =>
-      headerSecondary("Pagina Temporaria", _bodyTemp, context);
-}
-
-_bodyTemp() {
-  return Center(
-    child: Container(
-      color: Colors.white38,
-      child: Text("Pagina Temporaria", style: TextStyle(color: Colors.black),),
-    ),
-  );
-}
-
-
-
-
-
-
-//------------------------------------------------------------------------//
-
-
-
-
+//*********************************************************************//
 
 //TODO randomPhrases.dart
+
 int _lengthPhrases = 5;
+bool existsPhrases = true;
 var _position = List<int>.generate(_lengthPhrases, (int index) => index++);
 
 List<String> formatPhrase(){
@@ -332,24 +335,7 @@ List<String> formatPhrase(){
   List<String> finalAuthorPhrase;
   int valueIndex = valueRandom();
 
-  List<String> listPhrase = [
-      ("Oi0"),
-      ("Oi1"),
-      ("Oi2"),
-      ("Oi3"),
-      ("Oi4"),
-  ];
-
-  List<String> listAuthor = [
-      ("T0"),
-      ("T1"),
-      ("T2"),
-      ("T3"),
-      ("T4"),
-  ];
-
-
-  if(valueIndex == 999){
+  if(existsPhrases == false) {
     _phrase = 'Você já acessou todas as frases';
     finalAuthorPhrase = [
       _phrase,
@@ -371,14 +357,15 @@ List<String> formatPhrase(){
 
 }
 
-
-int valueRandom(){
+//int valueRandom(){
+valueRandom(){
 
   var random = new Random();
   int positionRandom, positionValue;
 
   if(_position.isEmpty){
-    return positionValue = 999;
+    existsPhrases = false;
+    return;
   }
 
   positionRandom = random.nextInt(_position.length); //Pega uma posição aleatoria no comprimento da lista
@@ -392,6 +379,27 @@ int valueRandom(){
 }
 
 
+//*********************************************************************//
+
+//TODO storagePhrases.dart
+  List<String> listPhrase = [
+      ("Oi0"),
+      ("Oi1"),
+      ("Oi2"),
+      ("Oi3"),
+      ("Oi4"),
+  ];
+
+//*********************************************************************//
+
+//TODO storageAuthor.dart
+  List<String> listAuthor = [
+      ("T0"),
+      ("T1"),
+      ("T2"),
+      ("T3"),
+      ("T4"),
+  ];
 
 
 
@@ -401,19 +409,25 @@ int valueRandom(){
 
 
 
-//TODO colorsGlobal.dart
-//Cores Usadas no app
-int amarelo1 = 0xffFFED00 ;
-int amarelo2 = 0xffFFDD00 ;
-int amarelo3 = 0xffFDC300 ;
-int amarelo4 = 0xffF8A800 ;
+//TODO pages
 
-int cinza1 = 0xffD1D0D1 ;
-int cinza2 = 0xffB0AEAA ;
-int cinza3 = 0xff82807C ;
-int cinza4 = 0xff3A3A3A ;
+//TODO pageTemporary.dart
+class Temporary extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) =>
+    headerSecondary("Pagina Temporaria", _bodyTemp, context);
+}
 
+_bodyTemp() {
+  return Center(
+    child: Container(
+      color: Colors.white38,
+      child: Text("Pagina Temporaria", style: TextStyle(color: Colors.black),),
+    ),
+  );
+}
 
+//*********************************************************************//
 
 
 
@@ -422,5 +436,4 @@ int cinza4 = 0xff3A3A3A ;
 //------------------------------------------------------------------------//
 
 
-
-
+ */
