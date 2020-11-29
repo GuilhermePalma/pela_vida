@@ -6,7 +6,7 @@ import 'package:pela_vida/pages/style/colorsGlobal.dart';
 class AboutApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) =>
-      headerSecondary("Sobre o APP", _body, context);
+      headerSecondary("Sobre o APP", _body(), yellow2, context);
 }
 
 //TODO Finalizar os textos

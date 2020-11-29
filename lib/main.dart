@@ -29,7 +29,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) =>
-      headerMain("Pela Vida", _body, lateralMenu, yellow3, context);
+      headerMain("Pela Vida", _body(), lateralMenu, yellow3, context);
 
   List<String> storagePhrase = [];
   String phraseDay = "", authorDay = "";
@@ -141,7 +141,7 @@ _messages(String _title, String _text1, String _text2) {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-          child: text(_text1 == "" ? "" : '"$_text1"', 22, white),
+          child: text(_text1 == "" ? "" : '"$_text1"', 22, white,fontWeight: 3),
         ),
         Align(
           alignment: Alignment.bottomRight,

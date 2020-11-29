@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:pela_vida/pages/components/header.dart';
+import 'package:pela_vida/pages/style/colorsGlobal.dart';
 
 class FeedbackUser extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => headerSecondary("Perfil", _body, context);
+  Widget build(BuildContext context) => headerSecondary("Perfil", _body(),yellow2, context);
 }
 
 

@@ -7,8 +7,8 @@
          FlutterApplication and put your custom class here. -->
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="pela_vida"
-        android:icon="@mipmap/ic_launcher">
+        android:label="PelaVida"
+        android:icon="@mipmap/icon_pelavida">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

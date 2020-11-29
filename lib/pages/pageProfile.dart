@@ -1,26 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:pela_vida/pages/components/buttons.dart';
 import 'package:pela_vida/pages/components/header.dart';
+import 'package:pela_vida/pages/style/colorsGlobal.dart';
+import 'package:pela_vida/utils/randomPhrases.dart';
 
-class Profile extends StatelessWidget {
+class Profile extends StatefulWidget {
   @override
-  Widget build(BuildContext context) => headerSecondary("Perfil", _body, context);
+  _ProfileState createState() => _ProfileState();
 }
 
-//TODO Inserir um emoji de verdade
-//TODO Cor de Fundo azul ou verde clarinho
-//TODO Criar a função para contar quantas frases foram lidas
+class _ProfileState extends State<Profile> {
+  @override
+  Widget build(BuildContext context) =>
+      headerSecondary("Perfil", _body(context), yellow2, context);
 
-_body(BuildContext context) {
-  return Container(
-    color: Colors.white,
-    child: Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        Text('Esse perfil já leu: VARIAVEL_QNT frases :)'),
+  _body(context) {
+    //Code
+    int counter;
 
-        RaisedButton(child: Text('Retornar...'), onPressed: ()=> Navigator.of(context).pop()),
+    setState(() {
+      counter = lengthPhrases - position.length;
+    });
 
-      ],
-    ),
-  );
+    //Layout
+    return Container(
+      color: Color(lightBlue),
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                counter == 0
+                    ? 'Esse perfil não leu nenhuma frases 😔\n'
+                    : 'Esse perfil já leu $counter frases 😄\n',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
+                textAlign: TextAlign.center,
+              ),
+              buttons(
+                  "Retornar Home", () => Navigator.of(context).pop(), false),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
