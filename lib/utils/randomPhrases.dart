@@ -37,10 +37,9 @@ int valueRandom() {
   var random = new Random();
   int positionRandom, positionValue;
 
-    if(position.isEmpty){
+  if (position.isEmpty) {
     return positionValue = 999;
-    }
-
+  }
 
   positionRandom = random.nextInt(
       position.length); //Pega uma posição aleatoria no comprimento da lista

@@ -32,8 +32,7 @@ headerSecondary(String _title, Widget _body, int _color, BuildContext context) {
       actions: <Widget>[
         IconButton(
             icon: Icon(Icons.home),
-            onPressed: () => Navigator.of(context).pop()
-        ),
+            onPressed: () => Navigator.of(context).pop()),
       ],
     ),
     body: _body,

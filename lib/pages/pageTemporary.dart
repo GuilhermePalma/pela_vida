@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pela_vida/pages/components/header.dart';
 
-//TODO Descontinuar esse codigo
-//TODO Necessario arrumar no menuLateral.dart
 
 class Temporary extends StatelessWidget {
   int yellow2;

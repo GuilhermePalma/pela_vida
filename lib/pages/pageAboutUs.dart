@@ -10,7 +10,6 @@ class AboutUs extends StatelessWidget {
       headerSecondary("Sobre Nós", _body(), yellow2, context);
 }
 
-//TODO Verificar os nomes
 _body() {
   return Container(
     color: Color(lightRed),

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 text(String _text, double _size, int _color, {int fontWeight}) {
-
-
   if (fontWeight == null) {
     fontWeight = 4;
   }

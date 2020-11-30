@@ -37,8 +37,7 @@ class _ProfileState extends State<Profile> {
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.w700),
                 textAlign: TextAlign.center,
               ),
-              buttons(
-                  "Tela Inicial", () => Navigator.of(context).pop()),
+              buttons("Tela Inicial", () => Navigator.of(context).pop()),
             ],
           ),
         ),

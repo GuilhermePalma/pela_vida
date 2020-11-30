@@ -10,32 +10,24 @@ class Settings extends StatelessWidget {
       headerSecondary("Configurações", _body(context), yellow2, context);
 }
 
-//TODO Verificar se o botão de retornar está funcionando
-//TODO Inserir icons de manutenção na pagina (no meio ou no inicio)
-//TODO Colocar um vermelho ou laranja pastel de fundo
-
 _body(context) {
   return Container(
     color: Color(lightRed),
     height: double.infinity,
     width: double.infinity,
-      child: Container(
-        width: 320,
-        padding: EdgeInsets.only(left: 10, right: 10),
-        child: Column(
+    child: Container(
+      width: 320,
+      padding: EdgeInsets.only(left: 10, right: 10),
+      child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             text(
-            '⚠️⚠️⚠️\nPagina ainda em Desenvolvimento, em breve novidades😉.',
-            18,
-            black),
-            buttons(
-                  "Tela Inicial", () => Navigator.of(context).pop(), padding: [0, 10, 0, 0]),
-
-          ]
-
-
-      ),
-      ),
+                '⚠️⚠️⚠️\nPagina ainda em Desenvolvimento, em breve novidades😉.',
+                18,
+                black),
+            buttons("Tela Inicial", () => Navigator.of(context).pop(),
+                padding: [0, 10, 0, 0]),
+          ]),
+    ),
   );
 }

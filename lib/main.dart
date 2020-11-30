@@ -7,8 +7,6 @@ import 'package:pela_vida/pages/components/header.dart';
 import 'package:pela_vida/pages/components/text.dart';
 import 'package:pela_vida/pages/components/buttons.dart';
 
-
-//TODO Implementar a musica
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -115,8 +113,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 decoration: roundBorder(offWhite, 5),
                 child: Column(
                   children: <Widget>[
-                    buttons(
-                        "Sortear Frase", () => generationNewPhrase(), padding: [0, 10, 0, 0]),
+                    buttons("Sortear Frase", () => generationNewPhrase(),
+                        padding: [0, 10, 0, 0]),
                     _messages("Frases Sorteadas:", phrase, author),
                   ],
                 ),
@@ -142,7 +140,8 @@ _messages(String _title, String _text1, String _text2) {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 5, 0, 5),
-          child: text(_text1 == "" ? "" : '"$_text1"', 22, white,fontWeight: 3),
+          child:
+              text(_text1 == "" ? "" : '"$_text1"', 22, white, fontWeight: 3),
         ),
         Align(
           alignment: Alignment.bottomRight,
@@ -155,6 +154,3 @@ _messages(String _title, String _text1, String _text2) {
     ),
   );
 }
-
-
-
