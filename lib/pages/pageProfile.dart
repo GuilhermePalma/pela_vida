@@ -38,7 +38,7 @@ class _ProfileState extends State<Profile> {
                 textAlign: TextAlign.center,
               ),
               buttons(
-                  "Retornar Home", () => Navigator.of(context).pop(), false),
+                  "Tela Inicial", () => Navigator.of(context).pop()),
             ],
           ),
         ),

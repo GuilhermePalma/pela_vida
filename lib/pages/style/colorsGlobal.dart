@@ -16,3 +16,6 @@ int offWhite = 0xffF5F5F5;
 int black = 0xff000000;
 
 int lightBlue = 0xffd6ffff;
+int lightRed = 0xffFFE4E1;
+int lightGreen = 0xffEBF5E6;
+//TODO Remover acima

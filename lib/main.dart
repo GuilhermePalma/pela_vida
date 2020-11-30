@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pela_vida/pages/style/roundBorder.dart';
 import 'package:pela_vida/utils/randomPhrases.dart';
 import 'package:pela_vida/pages/style/colorsGlobal.dart';
 import 'package:pela_vida/pages/components/drawer.dart';
@@ -93,29 +94,29 @@ class _MyHomePageState extends State<MyHomePage> {
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 width: 320,
-                decoration: _roundBorder(offWhite, 5),
+                decoration: roundBorder(offWhite, 5),
                 child: ButtonBar(
                   alignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    buttons("Testar Novo Dia", () => _newDay(), false),
-                    buttons("Reiniciar Frases", () => _resetPhrases(), false),
+                    buttons("Testar Novo Dia", () => _newDay()),
+                    buttons("Reiniciar Frases", () => _resetPhrases()),
                   ],
                 ),
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 width: 320,
-                decoration: _roundBorder(offWhite, 5),
+                decoration: roundBorder(offWhite, 5),
                 child: _messages("Mensagem do Dia:", phraseDay, authorDay),
               ),
               Container(
                 margin: EdgeInsets.fromLTRB(0, 10, 0, 10),
                 width: 320,
-                decoration: _roundBorder(offWhite, 5),
+                decoration: roundBorder(offWhite, 5),
                 child: Column(
                   children: <Widget>[
                     buttons(
-                        "Sortear Frase", () => generationNewPhrase(), true),
+                        "Sortear Frase", () => generationNewPhrase(), padding: [0, 10, 0, 0]),
                     _messages("Frases Sorteadas:", phrase, author),
                   ],
                 ),
@@ -132,7 +133,7 @@ _messages(String _title, String _text1, String _text2) {
   return Container(
     width: 300,
     margin: EdgeInsets.fromLTRB(10, 10, 10, 10),
-    decoration: _roundBorder(grey3, 5),
+    decoration: roundBorder(grey3, 5),
     child: Column(
       children: <Widget>[
         Container(
@@ -155,10 +156,5 @@ _messages(String _title, String _text1, String _text2) {
   );
 }
 
-_roundBorder(int _color, double _radius) {
-  return BoxDecoration(
-    color: Color(_color),
-    borderRadius: BorderRadius.circular(_radius),
-  );
-}
+
 
