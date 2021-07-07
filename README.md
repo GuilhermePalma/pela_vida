@@ -11,8 +11,10 @@
 # 💻 Sobre o Projeto
 
 🌱 **Pela Vida** - Projeto com o objetivo de mostrar frases motivacionais diarias para o usuario, contando tambem com a opção de sortear novas frases durante o dia
-<br/>
 
+Projeto Desenvolvido como trabalho para a Matéria Programação e Algoritmos Mobile - ETEC 2020
+<br/>
+<br/>
 
 ## 🚧 Infelizmente, nesse momento o projeto se encontra Descontinuado 🚧
   > São necessarias atualizações para as novas versões do Flutter e Dart
